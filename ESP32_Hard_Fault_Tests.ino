@@ -25,7 +25,8 @@
 /*      - returning a pointer to the heap allocated and freed memory,                             */
 /*      - freeing the same memory twice,                                                          */
 /*      - assigning a 32-bit value to an 8-bit variable,                                          */
-/*      - unaligned memory access.                                                                */
+/*      - unaligned memory access,                                                                */
+/*      - trying to delete a watchdog task that does not exist / is already deleted.              */
 /*                                                                                                */
 /* ********************************************************************************************** */
 
@@ -33,7 +34,7 @@
 
 void setup()
 {
-    Serial.begin(115200);
+    Serial.begin(BAUD_RATE);
     int i = 20;
     while (i > 0)
     {
@@ -59,6 +60,7 @@ void loop()
 //    unaligned_access_bad(0);                                                                        // nothing
 //    unaligned_access_bad(1);                                                                    // nothing
 //    unaligned_access_bad(2);                                                                // nothing
+//    delete_nonexistent_watchdog(void);                                                  // to check
     delay(3000);
     Serial.printf("- - -");
     delay(3000);

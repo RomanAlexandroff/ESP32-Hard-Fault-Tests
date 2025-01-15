@@ -169,4 +169,40 @@ uint32_t unaligned_access_bad(int index)
     return (val_BB_to_EE);
 }
 
+
+/*
+ *  Trying to delete a watchdog task that
+ *  does not exist or is already deleted.
+ *  Needs more experiments !
+*/
+void  delete_nonexistent_watchdog(void)
+{
+    /* Initializing wachdog */
+    esp_task_wdt_config_t twdt_config = {
+        .timeout_ms = WD_TIMEOUT_MS,
+        .idle_core_mask = (1 << WD_NUMBER_OF_CORES) - 1,
+        .trigger_panic = WD_RESET_INFO,
+    };
+    esp_task_wdt_deinit();
+    esp_task_wdt_init(&twdt_config);
+
+    /* Creating a wachdog for the current task */
+    esp_task_wdt_add(NULL);
+    esp_task_wdt_reset();
+
+    /* Deleting the wachdog for the current task */
+    delay (8000);
+    esp_task_wdt_delete(NULL);
+
+    /* Trying to delete the wachdog again */
+    delay (1000);
+    esp_task_wdt_delete(NULL);
+}
+
+
+
+
+
+
+
  
