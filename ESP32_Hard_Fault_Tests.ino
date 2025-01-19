@@ -50,12 +50,12 @@ void setup()
 */
 void loop()
 {
-    Serial.printf("divide_by_zero result: %d\n", divide_by_zero());
+//    Serial.printf("divide_by_zero result: %d\n", divide_by_zero());
 //    write_to_null();
 //    illegal_instruction_execution();
 //    Serial.printf("illegal_address_execution result: %d\n", illegal_address_execution());
 //    call_null_pointer_function();
-//    recursive_function();
+    recursive_function();
 //    Serial.printf("dont_return_stack_memory result: %p\n", dont_return_stack_memory());
 //    Serial.printf("dont_return_malloc_and_freed_memory result: %p\n", dont_return_malloc_and_freed_memory());
 //    double_free();
