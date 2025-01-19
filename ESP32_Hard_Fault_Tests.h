@@ -19,12 +19,23 @@
 # include <stdint.h>                                         // for fixed-width type variables
 # include <esp_task_wdt.h>                                   // watchdog functionality
 
-# pragma GCC optimize           ("O3")                       // macro for experimenting with the compiler optimization
+# pragma GCC optimize           ("O0")                       // macro for experimenting with the compiler optimization
+/*
+ *  O0    — no optimization (default);
+ *  O1    — basic optimization;
+ *  O2    — moderate optimization: slight program performance increase;
+ *  Os    — optimize for size: O2 level + optimizations to reduce program size;
+ *  O3    — high-level optimization: better performance, but bigger program size;
+ *  Ofast — optimize for speed: highest possible performance but may break standards compliance;
+ *  Og    — optimize for debugging.
+*/
 
 # define BAUD_RATE              115200                       // speed of the Serial communication
 # define WD_TIMEOUT_MS          5000                         // watchdog
 # define WD_NUMBER_OF_CORES     1                            // watchdog
 # define WD_RESET_INFO          true                         // watchdog
+# define BUTTON                 D0                           // button
+# define DEBOUNCE_DELAY_MS      1000ul                       // button
 
 int       divide_by_zero(void);
 int       write_to_null(void);
@@ -38,5 +49,7 @@ void      double_free(void);
 uint8_t   unaligned_access_ok(void);
 uint32_t  unaligned_access_bad(int index);
 void      delete_nonexistent_watchdog(void);
+void      IRAM_ATTR isr(void);
+void      overload_interrupt_routine(void);
 
 #endif

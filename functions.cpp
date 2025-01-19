@@ -200,6 +200,29 @@ void  delete_nonexistent_watchdog(void)
 }
 
 
+/*
+ *  Trying to delete a watchdog task that
+ *  does not exist or is already deleted.
+ *  Needs more experiments !
+*/
+volatile unsigned long last_triggered;
+void  isr(void)
+{
+    unsigned long interrupt_time;
+
+    interrupt_time = millis();
+    if (interrupt_time - last_triggered > DEBOUNCE_DELAY_MS)
+    {
+        last_triggered = interrupt_time;
+        Serial.printf("\n[ISR] This call may crash the program. Trigger time [%lu]\n", last_triggered);
+    }
+}
+
+void  overload_interrupt_routine(void)
+{   
+    pinMode(BUTTON, INPUT_PULLUP);
+    attachInterrupt(BUTTON, isr, FALLING);
+}
 
 
 

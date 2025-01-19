@@ -51,6 +51,10 @@
   optimisation:   default
   result:         yet to be tested
 
+  test:           overloading an ISR (Interrupt Service Routine)
+  optimisation:   default
+  result:         yet to be tested
+
 
 
 

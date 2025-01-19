@@ -26,7 +26,8 @@
 /*      - freeing the same memory twice,                                                          */
 /*      - assigning a 32-bit value to an 8-bit variable,                                          */
 /*      - unaligned memory access,                                                                */
-/*      - trying to delete a watchdog task that does not exist / is already deleted.              */
+/*      - trying to delete a watchdog task that does not exist / is already deleted,              */
+/*      - overloading an ISR (Interrupt Service Routine).                                         */
 /*                                                                                                */
 /* ********************************************************************************************** */
 
@@ -43,6 +44,10 @@ void setup()
     }
 }
 
+
+/*
+ *  Here choose a test by uncommenting its function
+*/
 void loop()
 {
     Serial.printf("divide_by_zero result: %d\n", divide_by_zero());
@@ -60,8 +65,12 @@ void loop()
 //    unaligned_access_bad(0);
 //    unaligned_access_bad(1);
 //    unaligned_access_bad(2);
-//    delete_nonexistent_watchdog(void);               // to check
+
+//    delete_nonexistent_watchdog();               // to check
+//    overload_interrupt_routine();                // to check
+
     delay(3000);
     Serial.printf("running\n");
     delay(3000);
 }
+ 
