@@ -34,7 +34,7 @@
 # define WD_TIMEOUT_MS          5000                         // watchdog
 # define WD_NUMBER_OF_CORES     1                            // watchdog
 # define WD_RESET_INFO          true                         // watchdog
-# define BUTTON                 D0                           // button
+# define BUTTON                 0                            // button
 # define DEBOUNCE_DELAY_MS      1000ul                       // button
 
 int       divide_by_zero(void);
