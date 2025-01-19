@@ -45,23 +45,23 @@ void setup()
 
 void loop()
 {
-    Serial.printf("divide_by_zero result: %d\n", divide_by_zero());                           // Crash without error message
-//    write_to_null();                                                                            // Guru Meditation Error: Core  0 panic'ed (Store access fault). Exception was unhandled. Rebooting...
-//    illegal_instruction_execution();                                                                // Guru Meditation Error: Core  0 panic'ed (Illegal instruction). Exception was unhandled. Rebooting...
-//    Serial.printf("illegal_address_execution result: %d\n", illegal_address_execution());               // Crash without error message
-//    call_null_pointer_function();                                                                           // Crash without error message
-//    recursive_function();                                                                                       // nothing
-//    Serial.printf("dont_return_stack_memory result: %p\n", dont_return_stack_memory());                             // Outputs 0x0, but keeps on running the execution
-//    Serial.printf("dont_return_malloc_and_freed_memory result: %p\n", dont_return_malloc_and_freed_memory());           // Outputs 0x4081229c, but keeps on running the execution
-//    double_free();                                                                                                  // Keeps on running the execution
+    Serial.printf("divide_by_zero result: %d\n", divide_by_zero());
+//    write_to_null();
+//    illegal_instruction_execution();
+//    Serial.printf("illegal_address_execution result: %d\n", illegal_address_execution());
+//    call_null_pointer_function();
+//    recursive_function();
+//    Serial.printf("dont_return_stack_memory result: %p\n", dont_return_stack_memory());
+//    Serial.printf("dont_return_malloc_and_freed_memory result: %p\n", dont_return_malloc_and_freed_memory());
+//    double_free();
 
     /* UNALIGNED ACCESS */
-//    unaligned_access_ok();                                                                              // nothing
-//    unaligned_access_bad(0);                                                                        // nothing
-//    unaligned_access_bad(1);                                                                    // nothing
-//    unaligned_access_bad(2);                                                                // nothing
-//    delete_nonexistent_watchdog(void);                                                  // to check
+//    unaligned_access_ok();
+//    unaligned_access_bad(0);
+//    unaligned_access_bad(1);
+//    unaligned_access_bad(2);
+//    delete_nonexistent_watchdog(void);               // to check
     delay(3000);
-    Serial.printf("- - -");
+    Serial.printf("running\n");
     delay(3000);
 }
