@@ -25,9 +25,7 @@ jobs:
         arduino-cli core install esp32:esp32
 
     - name: Compile Sketch
-      run: arduino-cli compile --fqbn esp32:esp32:esp32 ESP32_Hard_Fault_Tests.ino
-      working-directory: ${{ github.workspace }}
+      run: arduino-cli compile --fqbn esp32:esp32:esp32 ./ESP32_Hard_Fault_Tests.ino
 
     - name: Run Tests
-      run: arduino-cli test --fqbn esp32:esp32:esp32 ESP32_Hard_Fault_Tests.ino
-      working-directory: ${{ github.workspace }}
+      run: arduino-cli test --fqbn esp32:esp32:esp32 ./ESP32_Hard_Fault_Tests.ino
