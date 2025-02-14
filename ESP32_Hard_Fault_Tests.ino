@@ -20,7 +20,7 @@
 /*      - writing to a memory address pointed to by a null pointer,                               */
 /*      - calling an invalid function pointer,                                                    */
 /*      - trying to access memory outside the valid range,                                        */
-/*      - causing a stack overflow with a recursive function with no limit,                       */
+/*      - causing a stack overflow with a recursive function,                                     */
 /*      - returning a pointer to the stack allocated memory,                                      */
 /*      - returning a pointer to the heap allocated and freed memory,                             */
 /*      - freeing the same memory twice,                                                          */
@@ -39,14 +39,16 @@ void setup()
     int i = 20;
     while (i > 0)
     {
-        Serial.printf("-");
+        Serial.printf("-");                  // to indicate if the system reboots itself after crash
         i--;
     }
 }
 
 
 /*
- *  Here choose a test by uncommenting its function
+ *  Here choose a test by uncommenting its function.
+ *  Description for each test can be found next to its 
+ *  function definition in functions.cpp
 */
 void loop()
 {
@@ -55,22 +57,19 @@ void loop()
 //    illegal_instruction_execution();
 //    Serial.printf("illegal_address_execution result: %d\n", illegal_address_execution());
 //    call_null_pointer_function();
-    recursive_function();
+    recursive_factorial(100);
 //    Serial.printf("dont_return_stack_memory result: %p\n", dont_return_stack_memory());
 //    Serial.printf("dont_return_malloc_and_freed_memory result: %p\n", dont_return_malloc_and_freed_memory());
 //    double_free();
-
-    /* UNALIGNED ACCESS */
 //    unaligned_access_ok();
 //    unaligned_access_bad(0);
 //    unaligned_access_bad(1);
 //    unaligned_access_bad(2);
-
-//    delete_nonexistent_watchdog();               // to check
-//    overload_interrupt_routine();                // to check
+//    delete_nonexistent_watchdog();
+//    overload_interrupt_routine();
 
     delay(3000);
-    Serial.printf("running\n");
+    Serial.printf("running\n");               // to indicate if the system has crashed or is still running 
     delay(3000);
 }
  

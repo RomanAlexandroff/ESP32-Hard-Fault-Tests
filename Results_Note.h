@@ -22,10 +22,9 @@
   optimisation:   default
   result:         crash without error message
 
-  test:           causing a stack overflow with a recursive function with no limit
+  test:           causing a stack overflow with a recursive function
   optimisation:   default
-  result:         no crash or other negative consequences after 5 minutes of running
-                  the test should be configured and run again
+  result:         yet to be tested
 
   test:           returning a pointer to the stack allocated memory
   optimisation:   default

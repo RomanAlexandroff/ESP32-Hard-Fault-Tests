@@ -89,13 +89,23 @@ void call_null_pointer_function(void)
 
 
 /*
- *  This function will eventually
+ *  Counting factorial recursively.
+ *  Using and argument big enough,
+ *  this function will eventually
  *  cause a stack overflow, leading
  *  to a hard fault.
 */
-void recursive_function(void)
+int recursive_factorial(int num)
 {
-    recursive_function();  
+    if (nb == 0)
+        return (1);
+    else if (nb < 0)
+    {
+        Serial.printf("\nerror: factorials are not defined for negative numbers\n");
+        return (0);
+    }
+    else
+        return (recursive_factorial(nb - 1) * nb);  
 }
 
 

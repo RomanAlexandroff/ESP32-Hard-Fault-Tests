@@ -2,7 +2,9 @@
 
 Hard faults and crashes are the bogeymen of novice embedded software developers. This project serves as an educational resource designed to confront these fears head-on by exploring a comprehensive range of scenarios that can lead to crashes on the ESP32.
 
-The primary objective of this project is to identify, document and experience all possible causes of program execution crashes firsthand. By allowing inexperienced developers to encounter various program crashes in a controlled environment, the project aims to normalize these issues, demystifying them and making them a routine part of development. This approach seeks to reduce the stress associated with encountering crashes, empowering developers to handle them with confidence.
+The primary objective of this project is to identify, document and experience all possible causes of program execution crashes firsthand. The project aims to let unexperienced developers meet a variety of program crashes in a controlled enviroment and get used to them, making encountering a crash an ordinary day-to-day experience, thereby reducing the associated stress.
+
+By allowing inexperienced developers to encounter various program crashes in a controlled environment, the project aims to normalize these issues, making them a routine part of development. This approach seeks to reduce the stress associated with encountering crashes, empowering developers to handle them with confidence.
 
 
 ## Features
@@ -14,7 +16,7 @@ The project includes the following tests:
 - Writing to a memory address pointed to by a null pointer
 - Calling an invalid function pointer
 - Trying to access memory outside the valid range
-- Causing a stack overflow with a recursive function with no limit
+- Causing a stack overflow with a recursive function
 - Returning a pointer to the stack-allocated memory
 - Returning a pointer to the heap-allocated and freed memory
 - Freeing the same memory twice
@@ -26,14 +28,14 @@ The project includes the following tests:
 
 - `ESP32_Hard_Fault_Tests.ino`: Main Arduino sketch file that sets up and runs the tests.
 - `ESP32_Hard_Fault_Tests.h`: Header file containing function declarations necessary includes and a compiler optimisation level macro.
-- `functions.cpp`: Implementation of the various fault-inducing functions.
+- `functions.cpp`: Implementation of the various fault-inducing functions and their descriptions.
 - `LICENSE`: MIT License for the project.
 - `README.md`: This file.
 - `.gitignore`: Git ignore file to exclude certain files from version control.
 
 ## Usage
 
-**Disclaimer**. The usage of this sketch might harm or even break an ESP32. Use this sketch is at your own risk. I will not undertake any accountability for any damages caused by the use of this sketch.
+**Disclaimer**. The usage of this sketch might harm or even break an ESP32. Use this sketch at your own risk. I will not undertake any accountability for any damages caused by the use of this sketch.
 If you are not willing to risk testing the sketch on your own development board, I suggest you to try a free online ESP32 simulator such as [Wokwi](https://wokwi.com).
 
 1. Clone the repository to your local machine.

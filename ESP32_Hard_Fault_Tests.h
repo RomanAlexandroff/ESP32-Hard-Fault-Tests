@@ -42,7 +42,7 @@ int       write_to_null(void);
 int       illegal_instruction_execution(void);
 int       illegal_address_execution(void);
 void      call_null_pointer_function(void);
-void      recursive_function(void);
+int       recursive_factorial(int num);
 int*      dont_return_stack_memory(void);
 int*      dont_return_malloc_and_freed_memory(void);
 void      double_free(void);
